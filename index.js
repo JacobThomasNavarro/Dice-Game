@@ -11,6 +11,12 @@ function rollTheDice(){
 	let player2Counter = 0;
 	let player3Counter = 0;
 	alert('You rolled ' + diceTotal);
+	for(i = 0; i <= 20; i++){
+		if(diceTotal.includes(3)){
+			player1Counter = 0;
+			console.log("Player 1 total is"  + player1Counter);
+		}
+	}
 }
 
 rollTheDice()
