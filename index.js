@@ -1,22 +1,18 @@
-// let players = [];
+function startGame(){
+	let players = [];
+	for(let i = 0; i < 3; i++){
+		let playerName = prompt("Please enter your name.");
+		let player = {name: playerName, active: true, score: 0};
+		players.push(player);
+	}
 
-// function StarGame(){
-// 	for (let i = 0; i < 4; i++){
-// 		let player = {Name: "player" + i, playerCounter: 0};
-// 		players.push(player);
-// 	}
-// }
+	for(let i = 0; i < players.length; i++){
+		rollTheDice(players[i]);
+	}
+}
 
-let player1Name = prompt("Player 1 enter your name.");
-let player2Name = prompt("Player 2 enter your name.");
-let player3Name = prompt("Player 3 enter your name.");
-
-let player1Counter = 0;
-let player2Counter = 0;
-let player3Counter = 0;
-
-function rollTheDice(){
-	alert(player1Name + " roll the dice!");
+function rollTheDice(player){
+	alert(player.name + " roll the dice!");
 	let die1 = Math.floor(Math.random() * 4) +1;
 	let die2 = Math.floor(Math.random() * 6) +1;
 	let die3 = Math.floor(Math.random() * 8) +1;
@@ -27,23 +23,21 @@ function rollTheDice(){
 	let min = Math.min.apply(null,diceTotal);
 	let index = diceTotal.indexOf(3);
 	let lowNumber = diceTotal.indexOf(min);
-	for(i = 0; i < diceTotal.length; i++){
+	for(let i = 0; i < diceTotal.length; i++){
 		if(diceTotal.includes(3)){
-			player1Counter += 0;
-			console.log("Current total is "  + player1Counter);
+			player.score += 0;
+			console.log("Current total is "  + player.score);
 			diceTotal.splice(index, 1);
-			alert("You rolled a 3. " + " Current total is " + player1Counter);
+			alert("You rolled a 3. " + " Current total is " + player.score);
 		}
 		else{
-			player1Counter = player1Counter + min;
-			console.log("Current total is " + player1Counter);
-			alert("Your lowest die is " + min + " Current total is " + player1Counter);
+			player.score += min;
+			console.log("Current total is " + player.score);
+			alert("Your lowest die is " + min + " Current total is " + player.score);
 			diceTotal.splice(lowNumber, 1);
 		}
-	rollTheDice();
+	}
 
-	}		
-}
+	}
 
-
-rollTheDice();
+startGame();
