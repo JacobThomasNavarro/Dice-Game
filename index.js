@@ -8,9 +8,11 @@ function startGame(){
 	}
 
 	for(let i = 0; i < players.length; i++){
-		rollTheDice(players[i]);
-
-
+		// put a loop in here
+		for(let j = 0; j < 6; j++){
+		let diceTotal = rollTheDice(players[i]);
+		playTheGame(diceTotal, players[i]);
+	}
 	}
 }
 
@@ -26,25 +28,22 @@ function rollTheDice(player){
 	let die4 = rollDie(10);
 	let die5 = rollDie(12);
 	let die6 = rollDie(20);
-	let diceTotal = [die1, die2, die3, die4, die5, die6];
-	playTheGame(diceTotal);
+	return diceTotal = [die1, die2, die3, die4, die5, die6];
+	
 }
 
-function playTheGame(diceTotal){
+function playTheGame(diceTotal, player){
 	let min = Math.min.apply(null,diceTotal);
 	let index = diceTotal.indexOf(3);
 	let lowNumber = diceTotal.indexOf(min);
 		if(diceTotal.includes(3)){
-			player.score += 0;
 			console.log("Current total is "  + player.score);
-			diceTotal.splice(index, 1);
 			alert("You rolled a 3. " + " Current total is " + player.score);
 		}
 		else{
 			player.score += min;
 			console.log("Current total is " + player.score);
 			alert("Your lowest die is " + min + " Current total is " + player.score);
-			diceTotal.splice(lowNumber, 1);
 		}
 	}
 
