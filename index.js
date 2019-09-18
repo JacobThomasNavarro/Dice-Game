@@ -1,6 +1,5 @@
 function startGame(){
 	let players = [];
-	let turnCount = 1
 	for(let i = 0; i < 3; i++){
 		let playerName = prompt("Please enter your name.");
 		let player = {name: playerName, active: true, score: 0};
@@ -8,12 +7,11 @@ function startGame(){
 	}
 
 	for(let i = 0; i < players.length; i++){
-		// put a loop in here
 		for(let j = 0; j < 6; j++){
 		let diceTotal = rollTheDice(players[i]);
 		playTheGame(diceTotal, players[i]);
 	}
-	}
+}
 }
 
 function rollDie(numberOfSides){
@@ -46,5 +44,21 @@ function playTheGame(diceTotal, player){
 			alert("Your lowest die is " + min + " Current total is " + player.score);
 		}
 	}
+
+function endTheGame(){
+		if(players[0].score < players[1].score && players[2].score){
+			console.log(players[0] + " wins with a score of " + players[0].score);
+			alert(players[0] + " wins with a score of " + players[0].score);
+		}
+		else if(players[1].score < players[0].score && players[2].score){
+			console.log(players[1] + " wins with a score of " + players[1].score);
+			alert(players[1] + " wins with a score of " + players[1].score);
+		}
+		else{
+			console.log(players[2] + " wins with a score of " + players[2].score);
+			alert(players[2] + " wins with a score of " + players[2].score);
+		}
+	}
+
 
 startGame();
