@@ -12,6 +12,8 @@ function startGame(){
 		playTheGame(diceTotal, players[i]);
 	}
 }
+console.log(players[0].score);
+endTheGame(players);
 }
 
 function rollDie(numberOfSides){
@@ -45,18 +47,18 @@ function playTheGame(diceTotal, player){
 		}
 	}
 
-function endTheGame(){
+function endTheGame(players){
 		if(players[0].score < players[1].score && players[2].score){
-			console.log(players[0] + " wins with a score of " + players[0].score);
-			alert(players[0] + " wins with a score of " + players[0].score);
+			console.log(players[0].name + " wins with the lowest score of " + players[0].score);
+			alert(players[0].name + " wins with the lowest score of " + players[0].score);
 		}
 		else if(players[1].score < players[0].score && players[2].score){
-			console.log(players[1] + " wins with a score of " + players[1].score);
-			alert(players[1] + " wins with a score of " + players[1].score);
+			console.log(players[1].name + " wins with the lowest score of " + players[1].score);
+			alert(players[1].name + " wins with the lowest score of " + players[1].score);
 		}
 		else{
-			console.log(players[2] + " wins with a score of " + players[2].score);
-			alert(players[2] + " wins with a score of " + players[2].score);
+			console.log(players[2].name + " wins with the lowest score of " + players[2].score);
+			alert(players[2].name + " wins with the lowest score of " + players[2].score);
 		}
 	}
 
